@@ -4,7 +4,10 @@ set -e
 echo "Installing Node.js..."
 
 # Update package lists
-yum update -y
+# yum update -y
+
+# Install curl if not already installed
+yum install -y curl
 
 # Install the Node.js 16.x repository
 curl -sL https://rpm.nodesource.com/setup_18.x | bash -
