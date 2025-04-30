@@ -19,7 +19,7 @@ phases:
       - echo Copying frontend build to backend public directory...
       # Adjust paths as needed!
       - mkdir -p ../backend/public
-      - cp -r build/* ../backend/public/
+      - cp -r dist/* ../backend/public/
   post_build:
     commands:
       - echo Build completed on `date`
