@@ -3,15 +3,14 @@ set -e
 
 echo "Installing Node.js..."
 
-# Clean metadata and update system packages
-yum clean all
+# Update package lists
 yum update -y
 
-# Install Node.js 18 using NodeSource
-curl -fsSL https://rpm.nodesource.com/setup_18.x | bash -
+# Install the Node.js 16.x repository
+curl -sL https://rpm.nodesource.com/setup_16.x | bash -
 
 # Install Node.js and npm
-yum install -y nodejs --skip-broken
+yum install -y nodejs
 
 # Create application directory if it doesn't exist
 mkdir -p /var/www/book-store-mern-stack
