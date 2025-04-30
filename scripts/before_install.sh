@@ -3,16 +3,9 @@ set -e
 
 echo "Installing Node.js..."
 
-# Update package lists
-# yum update -y
-
-# Install curl if not already installed
-yum install -y curl
-
-# Install the Node.js 16.x repository
-curl -sL https://rpm.nodesource.com/setup_18.x | bash -
-
-# Install Node.js and npm
+# Enable Node.js 18 using amazon-linux-extras
+amazon-linux-extras enable nodejs18
+yum clean metadata
 yum install -y nodejs
 
 # Create application directory if it doesn't exist
