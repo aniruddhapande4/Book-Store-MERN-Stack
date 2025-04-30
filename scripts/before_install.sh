@@ -3,10 +3,15 @@ set -e
 
 echo "Installing Node.js..."
 
-# Enable Node.js 18 using amazon-linux-extras
-amazon-linux-extras enable nodejs18
-yum clean metadata
-yum install -y nodejs
+# Clean metadata and update system packages
+yum clean all
+yum update -y
+
+# Install Node.js 18 using NodeSource
+curl -fsSL https://rpm.nodesource.com/setup_18.x | bash -
+
+# Install Node.js and npm
+yum install -y nodejs --skip-broken
 
 # Create application directory if it doesn't exist
 mkdir -p /var/www/book-store-mern-stack
